@@ -1,0 +1,18 @@
+{
+  "status": "THIRD_BENCHMARK_DOWNLOADED_AND_SEALED_NOT_PARSED",
+  "created_utc": "2026-10-06T00:57:43.033626+00:00",
+  "holdout_manifest": "data_external/epa_aqs_houston/raw_holdout_sealed/download_manifest.json",
+  "holdout_manifest_sha256": "6a8d68555816124f48d78307958857737fb60f8db3afc2e7476585086fa95553",
+  "final_protocol": "journal_protocol/third_benchmark_final_holdout_protocol.json",
+  "final_protocol_sha256": "eeebbdd6807c1b11e53fb683a6e609890fc015d88d2f392fd3ea4e1388eafb5a",
+  "gzip_or_json_content_opened": false,
+  "concentration_values_inspected": false,
+  "test_metrics_computed": false,
+  "file_sha256": {
+    "sampleData_state-48_county-201_88101-PM2.5_duration-1H_2025.json.gz": "9308ee14c09a5382ccb40d7179428b4e7605214ceab504bc2464924d1a10650d",
+    "sampleData_state-48_county-201_42602-NO2_duration-1H_2025.json.gz": "16ebe0153d71ce4ba1840384ef71f4eacad99ed9a583f4f60e632e82d0a140c2",
+    "sampleData_state-48_county-201_44201-O3_duration-1H_2025.json.gz": "e6ab231ac3a4ae0472066e6fa0533f3de15d9e922c9b933cf295321f37b2fe8e",
+    "sampleData_state-48_county-201_42101-CO_duration-1H_2025.json.gz": "f56235362cbc233abbbcdd870fd979cbcde649b066a23aa899ba813af093d8d3",
+    "sampleData_state-48_county-201_42401-SO2_duration-1H_2025.json.gz": "5148c38a0d1902762c7b95a3625075e61e3f3b35e61d83c6c4a08ac33c08abe0"
+  }
+}

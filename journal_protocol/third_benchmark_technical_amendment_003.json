@@ -1,0 +1,19 @@
+{
+  "status": "TECHNICAL_AMENDMENT_003_LOCKED_AFTER_RUN_BEFORE_METRIC_INSPECTION",
+  "created_utc": "2026-10-06T07:38:47.084508+00:00",
+  "previous_resume_freeze": "journal_protocol/third_benchmark_technical_resume_002.json",
+  "previous_resume_freeze_sha256": "817c4234ef88511dbe475cf0806efbf4255504f47382e48fac132e8ba2a977e5",
+  "timing": "After all 52 evaluations completed, but before opening test_metrics.json, prediction archives, or any aggregated result.",
+  "repair": "Point the analyzer to a dedicated post-run analysis freeze, verify its frozen source/input mappings, and provide the hash-frozen development artifact solely for training event-rate climatology required by the holdout loader.",
+  "analyzer_sha256_before": "e2d89047a83db715a6cd15151c3dffae123304bcf5b4ef4532f37e604e685bdf",
+  "analyzer_sha256_after": "8d5c3d48eb1206421141648aaaf11b92063f69d173c88f34a715d7eb5e5e0728",
+  "analysis_algorithm_unchanged": [
+    "statistical reference and all comparators",
+    "primary endpoints and 6-hour/24-hour conditions",
+    "calibration application",
+    "moving-block bootstrap resamples and block length",
+    "Diebold-Mariano tests and Holm multiplicity correction",
+    "metric summaries and natural-case count extraction"
+  ],
+  "results_inspected_before_amendment": false
+}

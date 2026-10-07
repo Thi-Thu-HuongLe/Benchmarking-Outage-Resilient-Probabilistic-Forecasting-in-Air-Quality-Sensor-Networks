@@ -1,0 +1,38 @@
+{
+  "status": "FROZEN_BEFORE_HOUSTON_2025_DOWNLOAD",
+  "frozen_utc": "2026-09-29T05:25:00Z",
+  "scope": "Revised model comparison, outage scenarios, calibration, metrics, and development runner for the untouched Houston-Harris County 2025 holdout.",
+  "holdout_state": {
+    "year": 2025,
+    "download_directory_exists": false,
+    "downloaded": false,
+    "parsed": false,
+    "metrics_computed": false
+  },
+  "verification": {
+    "pytest_passed": 46,
+    "locked_smoke_complete_artifacts": 12,
+    "all_locked_smoke_markers_complete": true,
+    "all_locked_smoke_artifacts_development_only": true,
+    "smoke_scope": "all eight base learned models, two deterministic baselines, adaptive graph refinement, and fixed-graph equal-training control",
+    "smoke_conditions": "clean, one-station 6 h and 24 h, one prespecified three-station group 6 h and 24 h, plus natural co-missingness and per-pollutant natural-gap reporting"
+  },
+  "sha256": {
+    "journal_protocol/third_comparison_protocol.json": "d7d55722cfce11e9b3c0fe2dfa668ac90660fa84c15164cd9844223cb679ab4c",
+    "journal_protocol/third_development_preprocessing_protocol.json": "8972929a7bedae43bed857492e39b0d5f274beb0c074a6bb298035b36f6f31c8",
+    "journal_protocol/third_unseen_holdout_protocol.json": "fd9f2d931687a0da1502314c490414def0713afcc18ebd06c3f60103048c48b0",
+    "data_external/epa_aqs_houston/prepared_development/houston_2021_2024.npz": "ab187e5d1a04ddf887263d57f103c878b8949c428e893f8911ce1ca650125c36",
+    "src/aqriskformer/models/learned_imputers.py": "e2fdd905a9150b131500c3d68d4e42dd51c941fdb733325988a147fe1f8bb2ba",
+    "src/aqriskformer/outage_models.py": "a3dac65328a93a9325544732baf00e460def7cf3c017e72459a8ec71a7e21ac6",
+    "src/aqriskformer/outage_data.py": "98e3b7a1c81d0d877e1427cb4a0dc3f7032235932d8847d803ac5ec7d0ce6d37",
+    "src/aqriskformer/outage_evaluation.py": "ceb4a412e2796c633930ffe309945636f4438dc288cc88ba36fee74536721822",
+    "scripts/run_journal_development.py": "e57ff1f03dadf3cc971d283b48fb17adff1897f594ea842dfaac0f779b67618f",
+    "tests/test_outage_protocol.py": "a59cad2be2245e6d0a25e27ccbd0875e7ad58f4aa5555a3c5d741814148aa64c",
+    "tests/test_journal_development_runner.py": "319f3765bef9d2b7cdacbaa93a523821188477884b9cdd4f6c095961e7a3ddfd",
+    "experiment_protocol/results_third/development/smoke_locked/status.json": "c99d54e1c754ae1ff2ad9a7751537dc2b6cf5a2661e1cc30eb791c6916b4a1a1",
+    "experiment_protocol/results_third/development/smoke_locked/launch_manifest.json": "d83661a0d4ad766fa841d288d8f77ac8ee653b7634195c713ce10d03a1c0e2a0",
+    "experiment_protocol/results_third/development/smoke_refinement_locked/status.json": "03bc8f5fb4f224d197d4425aba2d50d6a98ed3b99475470a23e606401462dda4",
+    "experiment_protocol/results_third/development/smoke_refinement_locked/launch_manifest.json": "1a8e2cb5ceeeb427b8260a7e1e5303d44bdd65fd56b1c381bfcc4fee6e456c56"
+  },
+  "next_gate": "Run the complete 2021-2024 development comparison and both refinement controls. Freeze their completed artifacts and reporting/statistics code before downloading Houston 2025 exactly once."
+}

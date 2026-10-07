@@ -1,0 +1,111 @@
+{
+  "status": "PASS_HOLDOUT_PREPARED_AFTER_FINAL_FREEZE",
+  "holdout_content_accessed": true,
+  "test_metrics_computed": false,
+  "protocol_sha256": "eeebbdd6807c1b11e53fb683a6e609890fc015d88d2f392fd3ea4e1388eafb5a",
+  "preprocessing_protocol_sha256": "8972929a7bedae43bed857492e39b0d5f274beb0c074a6bb298035b36f6f31c8",
+  "raw_manifest_sha256": "6a8d68555816124f48d78307958857737fb60f8db3afc2e7476585086fa95553",
+  "development_prepared_sha256": "ab187e5d1a04ddf887263d57f103c878b8949c428e893f8911ce1ca650125c36",
+  "shape_including_context": [
+    8928,
+    7,
+    5
+  ],
+  "context_hours": 168,
+  "embargo_hours_not_scored": 168,
+  "test_split_bounds": [
+    336,
+    8927
+  ],
+  "test_target_timestamps_utc": [
+    "2025-01-08 06:00:00",
+    "2026-01-01 05:00:00"
+  ],
+  "stations": [
+    "48-201-1039",
+    "48-201-1034",
+    "48-201-0024",
+    "48-201-0066",
+    "48-201-0046",
+    "48-201-1052",
+    "48-201-0058"
+  ],
+  "pollutants": [
+    "PM2.5",
+    "NO2",
+    "O3",
+    "CO",
+    "SO2"
+  ],
+  "observed_fraction_by_pollutant": {
+    "PM2.5": 0.919047619047619,
+    "NO2": 0.5263046314416178,
+    "O3": 0.6926940639269407,
+    "CO": 0.23714938030006524,
+    "SO2": 0.13719830397912589
+  },
+  "merge_report": {
+    "PM2.5": {
+      "api_rows": 90336,
+      "selected_rows": 61320,
+      "finite_rows": 56356,
+      "merged_hourly_values": 56356,
+      "duplicate_groups": 0,
+      "duplicate_extra_rows": 0,
+      "maximum_multiplicity": 1,
+      "maximum_duplicate_range": 0.0
+    },
+    "NO2": {
+      "api_rows": 122640,
+      "selected_rows": 35040,
+      "finite_rows": 32273,
+      "merged_hourly_values": 32273,
+      "duplicate_groups": 0,
+      "duplicate_extra_rows": 0,
+      "maximum_multiplicity": 1,
+      "maximum_duplicate_range": 0.0
+    },
+    "O3": {
+      "api_rows": 148920,
+      "selected_rows": 43800,
+      "finite_rows": 42476,
+      "merged_hourly_values": 42476,
+      "duplicate_groups": 0,
+      "duplicate_extra_rows": 0,
+      "maximum_multiplicity": 1,
+      "maximum_duplicate_range": 0.0
+    },
+    "CO": {
+      "api_rows": 26280,
+      "selected_rows": 17520,
+      "finite_rows": 14542,
+      "merged_hourly_values": 14542,
+      "duplicate_groups": 0,
+      "duplicate_extra_rows": 0,
+      "maximum_multiplicity": 1,
+      "maximum_duplicate_range": 0.0
+    },
+    "SO2": {
+      "api_rows": 35040,
+      "selected_rows": 8760,
+      "finite_rows": 8413,
+      "merged_hourly_values": 8413,
+      "duplicate_groups": 0,
+      "duplicate_extra_rows": 0,
+      "maximum_multiplicity": 1,
+      "maximum_duplicate_range": 0.0
+    }
+  },
+  "native_holdout_values_sha256": "975880e249a1fb39c01cb541739a9e7c711cf42cd85a0d64f4d2690dbb9f91d5",
+  "native_holdout_mask_sha256": "1cc12be3b2d463a36be6997fad6fb5a56d3ee993654ad3c0e4f98d873b1e2aee",
+  "calendar_clock": {
+    "kind": "fixed local standard time",
+    "utc_offset_hours": -6.0
+  },
+  "completed_utc": "2026-10-06T00:58:04.614867+00:00",
+  "execution_freeze_sha256": "483d0e9a4b5b601c8584a2bce26960df56008d6e792727bdc13def629dc8ce47",
+  "prepared_file": "data_external\\epa_aqs_houston\\prepared_holdout\\houston_2025.npz",
+  "prepared_sha256": "72f29d8394dc2fcf383f5154ef120bd9e1653555c0d601992daa76358f82b7cc",
+  "availability_file": "data_external\\epa_aqs_houston\\prepared_holdout\\availability.csv",
+  "availability_sha256": "0c12354dd1b8e6387a27e73023ee33d37f2678c609b33ea22ef9597e11091339"
+}

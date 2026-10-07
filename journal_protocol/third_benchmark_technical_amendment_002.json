@@ -1,0 +1,35 @@
+{
+  "status": "TECHNICAL_AMENDMENT_002_LOCKED_BEFORE_INFERENCE_AND_METRICS",
+  "created_utc": "2026-10-06T01:01:06.234180+00:00",
+  "previous_resume_freeze": "journal_protocol/third_benchmark_technical_resume_001.json",
+  "previous_resume_freeze_sha256": "d4069578525e9dd33a5111ba4b9887b84a2a406a5005aaedf8e6d656585b1811",
+  "failure_stage": "holdout loading after preparation; before model loading and metrics",
+  "failure": {
+    "exception": "KeyError",
+    "message": "'train'",
+    "cause": "training_event_rates is a cached property computed from a train split, while the correctly sealed holdout artifact contains only a test split"
+  },
+  "repair": "Load training_event_rates only from the hash-frozen 2021-2024 development artifact, require identical station and pollutant identities, and pass the result to the test-only OutageData object.",
+  "changed_source_sha256": {
+    "src/aqriskformer/epa_aqs_holdout.py": {
+      "before_sha256": "e4d8e7de095c1b3849b0e9490eb751987fc608d8fab61cccf1686a1ba4e74bd6",
+      "after_sha256": "d3c25fcb143541b13dddda8fbbc137b2790816056bef72544a8ab18d2c949025"
+    },
+    "scripts/run_third_benchmark_holdout.py": {
+      "before_sha256": "3b5c946e2df8164b7b2bd7c9af3806c436374f7cd3a5895418a9c57ddf566a8e",
+      "after_sha256": "a94c273a9b48b811169e11fb6a2892a77821e80c5d5cdd4710e0703320ebf5de"
+    }
+  },
+  "scientific_invariants_unchanged": [
+    "models, checkpoints, and predictions",
+    "validation-fitted calibration arrays",
+    "outage conditions, forecast horizons, endpoints, and statistical tests",
+    "Houston values, masks, station identities, and prepared tensors"
+  ],
+  "holdout_state": {
+    "content_parsed": true,
+    "model_inference_started": false,
+    "test_metrics_computed": false,
+    "results_inspected": false
+  }
+}

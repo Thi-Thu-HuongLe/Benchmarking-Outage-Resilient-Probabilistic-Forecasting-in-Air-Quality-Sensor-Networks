@@ -1,0 +1,97 @@
+{
+  "protocol_status": "THIRD_DATASET_AND_SPLITS_LOCKED_HOLDOUT_NOT_DOWNLOADED",
+  "created_utc": "2026-09-29T02:27:00.692585+00:00",
+  "purpose": "Untouched non-Western geographic evaluation for reviewer-requested revised methods; model comparison is frozen separately after development-only work.",
+  "selection_lock": "journal_protocol/third_replication_selection.json",
+  "selection_lock_sha256": "aed620757ff3e1736afa6723908a8cb8641b875cec6c76cae80d1284eb1ee78b",
+  "dataset": {
+    "name": "US EPA AQS Houston-Harris County hourly sensor network",
+    "source_url": "https://aqs.epa.gov/aqsweb/airdata/download_files.html",
+    "api_endpoint": "https://aqs.epa.gov/data/api/sampleData/byCounty",
+    "license_or_terms": "US EPA public monitoring data; preserve source attribution and retrieval metadata",
+    "download_or_snapshot_date": "2026-09-29",
+    "development_download_manifest": "data_external/epa_aqs_houston/raw_development_api/download_manifest.json",
+    "development_download_manifest_sha256": "c25f2ef7031ac713ad7a28294fb7af5c2fdd6678347cb478f7c50572f9db48f6",
+    "development_validation_summary": "data_external/epa_aqs_houston/raw_development_api/validation_summary.json",
+    "development_validation_summary_sha256": "820b74a6ad539b128544b61879307cd3e61380f0d743d6f90666270f35598b5d",
+    "development_validation_status_at_freeze": "PASS",
+    "holdout_download_manifest": "NOT_DOWNLOADED",
+    "state_fips": "48",
+    "county_fips": "201",
+    "civil_time_zone": "America/Chicago",
+    "local_standard_utc_offset_hours": -6,
+    "time_zone": "America/Chicago civil clock audited against AQS local fields; fixed UTC-06:00 local standard time used for the canonical calendar",
+    "units": {
+      "PM2.5": "Micrograms/cubic meter (LC)",
+      "NO2": "Parts per billion",
+      "O3": "Parts per million",
+      "CO": "Parts per million",
+      "SO2": "Parts per billion"
+    },
+    "sample_duration_code": "1",
+    "sample_duration": "1 HOUR",
+    "station_count": 7,
+    "station_ids": [
+      "48-201-1039",
+      "48-201-1034",
+      "48-201-0024",
+      "48-201-0066",
+      "48-201-0046",
+      "48-201-1052",
+      "48-201-0058"
+    ],
+    "station_selection_rule": "Require PM2.5, then sort by relevant pollutant count, complete PM2.5-NO2-O3 core, PM2.5-plus-O3 availability, mean minimum annual coverage, and site ID; all descending except site ID.",
+    "station_coordinates_available": true,
+    "pollutants": [
+      "PM2.5",
+      "NO2",
+      "O3",
+      "CO",
+      "SO2"
+    ],
+    "common_core_pollutants": [
+      "PM2.5",
+      "NO2",
+      "O3"
+    ],
+    "partial_pollutants": [
+      "CO",
+      "SO2"
+    ],
+    "target_policy": "Score every prespecified station-pollutant cell with an observed target; also report pollutant and availability strata.",
+    "natural_missingness_retained": true
+  },
+  "split_policy": {
+    "type": "strict_chronological",
+    "train": "2021-01-01 through 2023-12-31 fixed local standard time",
+    "validation": "2024-01-01 through 2024-12-31 fixed local standard time",
+    "test": "2025-01-01 through 2025-12-31; not downloaded until final freeze",
+    "embargo_hours_between_splits": 168,
+    "test_access_rule": "Do not download or parse Houston 2025 until revised models, calibration, outage scenarios, checkpoints, inference, statistics, and reporting code are frozen from development data."
+  },
+  "forecast": {
+    "lookback_hours": 168,
+    "maximum_horizon_hours": 48,
+    "reported_horizons_hours": [
+      1,
+      6,
+      12,
+      24,
+      48
+    ],
+    "target_pollutants": [
+      "PM2.5",
+      "NO2",
+      "O3",
+      "CO",
+      "SO2"
+    ]
+  },
+  "holdout": {
+    "year": 2025,
+    "downloaded": false,
+    "content_parsed": false,
+    "metrics_computed": false
+  },
+  "next_gate": "Prepare and audit 2021-2024 only; implement and freeze the revised comparison before any Houston 2025 download."
+}

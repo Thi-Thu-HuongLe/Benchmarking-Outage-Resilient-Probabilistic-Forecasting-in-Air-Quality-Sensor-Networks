@@ -1,0 +1,193 @@
+{
+  "status": "THIRD_BENCHMARK_FINAL_HOLDOUT_PROTOCOL_LOCKED_CONTENT_NOT_PARSED",
+  "created_utc": "2026-10-06T00:57:43.026625+00:00",
+  "name": "houston_2025_external_confirmatory_outage_benchmark",
+  "title": "Benchmarking Outage-Resilient Probabilistic Forecasting in Air-Quality Sensor Networks",
+  "study_type": "multi_model_benchmark",
+  "benchmark_amendment": "journal_protocol/third_benchmark_amendment.json",
+  "benchmark_amendment_sha256": "ccdcca8453acae7fa346a27d37133997b0ff0389095afca3d056efd86b8872df",
+  "candidate_selection_freeze": "journal_protocol/third_benchmark_development_freeze.json",
+  "candidate_selection_freeze_sha256": "22e9233803361632264e6abaa283566995165b36e4e3f29892d560480ff58c1a",
+  "reference_model": "ignnk_style_impute_tcn",
+  "reference_role": "Reference for paired confirmatory contrasts only because it had the strongest development primary profile; it is not a proposed model and is not a claim of exact IGNNK reproduction.",
+  "candidate": "ignnk_style_impute_tcn",
+  "candidate_role": "compatibility alias: statistical reference, not proposed model",
+  "learned_comparators": [
+    "local_tcn",
+    "spatial_residual",
+    "fixed_graph_mask_tcn",
+    "grin_impute_tcn",
+    "multi_station_tcn",
+    "dcrnn",
+    "graph_wavenet",
+    "adaptive_graph_mask_tcn",
+    "fixed_graph_equal_training"
+  ],
+  "deterministic_comparators": [
+    "persistence",
+    "seasonal_naive_24h"
+  ],
+  "refinement_models": [
+    "adaptive_graph_mask_tcn",
+    "fixed_graph_equal_training"
+  ],
+  "seeds": [
+    42,
+    123,
+    2026,
+    3407,
+    7777
+  ],
+  "checkpoint_roots": {
+    "base": "experiment_protocol/results_third/development/full_locked/runs",
+    "refinement": "experiment_protocol/results_third/development/full_refinement_locked/runs",
+    "candidate": "experiment_protocol/results_third/development/full_locked/runs",
+    "comparators": "experiment_protocol/results_third/development/full_locked/runs"
+  },
+  "development_protocol": "journal_protocol/third_comparison_protocol.json",
+  "data": {
+    "development_prepared": "data_external/epa_aqs_houston/prepared_development/houston_2021_2024.npz",
+    "development_prepared_sha256": "ab187e5d1a04ddf887263d57f103c878b8949c428e893f8911ce1ca650125c36",
+    "sealed_raw_root": "data_external/epa_aqs_houston/raw_holdout_sealed",
+    "sealed_manifest": "data_external/epa_aqs_houston/raw_holdout_sealed/download_manifest.json",
+    "sealed_manifest_sha256": "6a8d68555816124f48d78307958857737fb60f8db3afc2e7476585086fa95553",
+    "prepared_holdout": "data_external/epa_aqs_houston/prepared_holdout/houston_2025.npz",
+    "prepared_dataset_name": "epa_aqs_houston_2025_holdout",
+    "preparation_report": "data_external/epa_aqs_houston/prepared_holdout/preparation_report.json",
+    "availability_table": "data_external/epa_aqs_houston/prepared_holdout/availability.csv",
+    "holdout_start_utc": "2025-01-01T06:00:00Z",
+    "holdout_end_utc": "2026-01-01T05:00:00Z",
+    "expected_holdout_hours": 8760,
+    "context_hours_from_development": 168,
+    "embargo_hours_not_scored": 168,
+    "first_scored_target_utc": "2025-01-08T06:00:00Z",
+    "calendar_clock": "fixed UTC-06:00 local standard time",
+    "local_standard_utc_offset_hours": -6
+  },
+  "forecast": {
+    "lookback": 168,
+    "horizon": 48,
+    "reported_horizons": [
+      1,
+      6,
+      12,
+      24,
+      48
+    ],
+    "test_stride": 6,
+    "fill_limit": 6,
+    "corruption_seed": 81317
+  },
+  "conditions": {
+    "development_and_test": [
+      "clean",
+      "random_block_6h",
+      "random_block_24h",
+      "each_station_full_history_dropout",
+      "each_station_trailing_6h_outage",
+      "each_station_trailing_24h_outage",
+      "each_prespecified_three_station_group_trailing_6h_outage",
+      "each_prespecified_three_station_group_trailing_24h_outage"
+    ],
+    "primary": [
+      "each_station_trailing_6h_outage",
+      "each_station_trailing_24h_outage"
+    ],
+    "regional_robustness": [
+      "each_prespecified_three_station_group_trailing_6h_outage",
+      "each_prespecified_three_station_group_trailing_24h_outage"
+    ],
+    "multi_station_outage_groups": [
+      [
+        0,
+        1,
+        6
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        2,
+        3,
+        5
+      ]
+    ],
+    "natural_comissingness": {
+      "core_pollutants": [
+        "PM2.5",
+        "NO2",
+        "O3"
+      ],
+      "durations_hours": [
+        6,
+        24
+      ],
+      "origin": "event-aligned last missing hour before at least one core reading resumes",
+      "network_availability": "at least one other station has a core reading at the origin",
+      "per_pollutant_analysis": "Repeat event-aligned 6-hour and 24-hour gap counts and metrics separately for every station-pollutant channel, requiring another station to observe the same pollutant at the origin.",
+      "interpretation": "secondary observable co-missingness and channel-gap case analyses; do not assert verified hardware or communications failure"
+    }
+  },
+  "endpoints": {
+    "primary": [
+      "mase",
+      "q95_brier"
+    ],
+    "secondary": [
+      "q95_ap",
+      "q95_brier_skill",
+      "picp80",
+      "width80_mase_scaled",
+      "interval_score80_mase_scaled",
+      "crps_mase_scaled",
+      "negative_mass"
+    ],
+    "clean_guardrail": {
+      "endpoints": [
+        "mase",
+        "q95_brier"
+      ],
+      "maximum_relative_degradation_vs_each_local_control": 0.01,
+      "local_controls": [
+        "local_tcn",
+        "spatial_residual"
+      ]
+    }
+  },
+  "calibration": {
+    "method": "horizon_condition_nll_conformal80",
+    "factor_bounds": [
+      0.25,
+      4.0
+    ],
+    "minimum_samples": 100,
+    "shrinkage_samples": 200,
+    "fit_data": "development validation predictions only",
+    "strata": "condition family by reported horizon by pollutant, pooling prespecified affected stations within each condition family",
+    "procedure": "NLL scale with empirical shrinkage to pollutant-wide fallback, followed by finite-sample central-80 absolute standardized-residual conformal scale",
+    "uncalibrated_results_required": true,
+    "test_labels_used": false
+  },
+  "statistics": {
+    "temporal_block_length_hours": 168,
+    "bootstrap_resamples": 10000,
+    "pairing": "same forecast origin, horizon, station, pollutant, condition, and seed",
+    "multiplicity": "Holm correction over all candidate-versus-comparator primary tests",
+    "seed_interpretation": "optimization variability, not independent replication",
+    "primary_contrasts": "development-selected statistical reference versus every other method at 6-hour and 24-hour single-station outages for MASE and Q95 Brier",
+    "reference_selected_before_holdout": true
+  },
+  "reporting_rules": [
+    "Report all frozen models and both deterministic baselines regardless of direction.",
+    "Report uncalibrated and frozen-development-calibrated results.",
+    "Report the failed adaptive candidate and negative ablation/control findings.",
+    "Report 24-hour undercoverage and natural-event scarcity explicitly.",
+    "Do not rank, select, retrain, recalibrate, or revise using Houston 2025 labels.",
+    "Treat seed variation as optimization variation, not independent replication."
+  ],
+  "output": "experiment_protocol/results_third/holdout_2025",
+  "access_rule": "The Houston 2025 gzip/JSON content may be opened only after the final execution freeze exists, authorizes evaluation, and every recorded hash verifies.",
+  "rerun_rule": "Report all Houston 2025 results regardless of direction. Never select, retrain, recalibrate, or revise a model, endpoint, or protocol using holdout labels. A technical interruption may resume only already-frozen computations."
+}

@@ -1,0 +1,38 @@
+{
+  "status": "TECHNICAL_AMENDMENT_001_LOCKED_BEFORE_INFERENCE_AND_METRICS",
+  "created_utc": "2026-10-06T00:59:49.855712+00:00",
+  "original_execution_freeze": "journal_protocol/third_benchmark_final_holdout_execution_freeze.json",
+  "original_execution_freeze_sha256": "483d0e9a4b5b601c8584a2bce26960df56008d6e792727bdc13def629dc8ce47",
+  "failure_stage": "after sealed-source preparation; before model loading and metrics",
+  "failure": {
+    "exception": "TypeError",
+    "message": "OutageData.__init__() missing 1 required positional argument: 'event_rates'",
+    "location": "src/aqriskformer/epa_aqs_holdout.py:load_holdout_outage_data"
+  },
+  "repair": "Pass the already-stored training_event_rates tensor into the holdout OutageData constructor, validate its frozen shape, and make the runner verify this explicit post-preparation resume record.",
+  "changed_source_sha256": {
+    "src/aqriskformer/epa_aqs_holdout.py": {
+      "before_sha256": "d1d270020ae2cdaede91ef64cbd99abc1a84e08142866947f8ca1cf605cc8c9f",
+      "after_sha256": "e4d8e7de095c1b3849b0e9490eb751987fc608d8fab61cccf1686a1ba4e74bd6"
+    },
+    "scripts/run_third_benchmark_holdout.py": {
+      "before_sha256": "5327d755f98f709f455615fe6ad3546285c7fc03215013d8cc55f2e09ff48e92",
+      "after_sha256": "3b5c946e2df8164b7b2bd7c9af3806c436374f7cd3a5895418a9c57ddf566a8e"
+    }
+  },
+  "scientific_invariants_unchanged": [
+    "all model architectures and checkpoints",
+    "all validation-fitted calibration arrays",
+    "all outage conditions and forecast horizons",
+    "all endpoints, statistical tests, bootstrap settings, and reporting rules",
+    "all holdout values, masks, station identities, and prepared tensors"
+  ],
+  "holdout_state": {
+    "content_parsed": true,
+    "prepared_artifact_created": true,
+    "model_inference_started": false,
+    "test_metrics_computed": false,
+    "results_inspected": false
+  },
+  "authorization": "Resume the same frozen benchmark from the verified prepared artifact. This is a technical continuation, not a second holdout experiment."
+}
