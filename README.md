@@ -1,8 +1,7 @@
 # Benchmarking Outage-Resilient Probabilistic Forecasting in Air-Quality Sensor Networks
 
 This repository contains the Houston--Harris County code, prepared public data, and
-frozen protocol records for the accompanying IEEE Sensors Journal benchmark. The study
-evaluates ten learned implementations and two deterministic baselines under controlled
+frozen protocol records. The study evaluates ten learned implementations and two deterministic baselines under controlled
 loss of recent measurements at air-quality monitoring stations.
 
 ## Scope
